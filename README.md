@@ -25,3 +25,15 @@ Nessa aula, foram removidos apenas alguns arquivos desnecessários.
 # AULA 03 - ESTRUTURA DE PASTAS
 
 Uma aplicação `SPA` é uma aplicação em que todas as páginas dessa aplicação serão carregadas dentro do arquivo `index.html` através do JavaScript.
+
+# AULA 04 - COMPONENTES E PÁGINAS
+
+O React é uma aplicação que sugere o uso de componentes reutilizáveis entre as páginas da aplicação.
+
+No React, um componente é uma função que agrupa determinados elementos de uma interface, assim, podemos, inclusive, agrupar um componente dentro de outro.
+
+Basicamente, uma função é **todo componente que retorna um HTML**.
+
+# AULA 05 - NAVEGANDO ENTRE ROTAS
+
+A
