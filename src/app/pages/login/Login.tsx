@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 export const Login = () => {
@@ -15,6 +15,16 @@ export const Login = () => {
   };
 
   const handleLogin = () => {};
+
+  /* Esse bloco de código será executado apenas quando o componente "Login", ou seja, a página "Login" for carregada. */
+  useEffect(() => {
+    console.log("Você é homem!");
+  }, []);
+
+  /* A cada vez que o estado do "email" ou do "password" for alterado, essa função será exibida. */
+  useEffect(() => {
+    console.log("Email: " + email + " Password: " + password);
+  }, [email, password]);
 
   return (
     <div>
