@@ -34,6 +34,20 @@ No React, um componente é uma função que agrupa determinados elementos de uma
 
 Basicamente, uma função é **todo componente que retorna um HTML**.
 
-# AULA 05 - NAVEGANDO ENTRE ROTAS
+# AULA 06 - USANDO O USESTATE DE FORMA CORRETA
 
-A
+Sempre que atualizamos um estado através da função "useState", o React re-renderizará o componente, assim, o bloco de código desse componente será executado novamente.
+
+Se atualizarmos um estado a cada modificação de um "onChange", o bloco desse componente em que o estado será inserido, será executado a cada modificação.
+
+# AULA 07 - USANDO O USEEFFECT DE FORMA CORRETA
+
+O hook "useEffect" é utilizado para executarmos **efeitos colaterais em componentes funcionais**.
+
+Por exemplo, se quisermos mostrar para o usuário uma mensagem quando o componente for renderizado, podemos usar o "useEffect".
+
+O "effect" possui um relacionamento direto com as dependências que são informadas dentro dele, assim, esse bloco de código será executado apenas se as dependências dele forem utilizadas.
+
+Ele impede que todas as vezes que alteremos um estado, um bloco de código seja executado novamente.
+
+Se o array de dependências estiver vazio, o código será executado apenas quando executarmos o componente.
