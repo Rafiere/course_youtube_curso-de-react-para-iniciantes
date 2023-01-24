@@ -51,3 +51,5 @@ O "effect" possui um relacionamento direto com as dependências que são informa
 Ele impede que todas as vezes que alteremos um estado, um bloco de código seja executado novamente.
 
 Se o array de dependências estiver vazio, o código será executado apenas quando executarmos o componente.
+
+# AULA 08 - USANDO O USEMEMO
