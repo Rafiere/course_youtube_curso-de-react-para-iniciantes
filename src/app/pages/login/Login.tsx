@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 export const Login = () => {
@@ -41,6 +41,20 @@ export const Login = () => {
     console.log(password);
   }, [email, password]);
 
+  /* Quando o componente "Login" for carregado, estamos utilizando um "useRef" que inicia como nulo. Basicamente, o parâmetro "ref" do atributo "input" está atribuindo a referência para aquele componente para dentro do "inputPasswordRef". Assim, podemos, por exemplo, obter o "current" de dentro de alguma função, como um   "useCallback", por exemplo.*/
+
+  const inputPasswordRef = useRef<HTMLInputElement>(null);
+
+  const handleLogin2 = useCallback(() => {
+    console.log(email);
+    console.log(password);
+
+    /* Estamos pegando a referência do componente HTML e usando ela, assim, quando essa função for executada, o componente "passwordRef" será focado. */
+    if (inputPasswordRef.current !== null) {
+      console.log(inputPasswordRef.current.focus());
+    }
+  }, [email, password]);
+
   return (
     <div>
       <h1>Página de Login</h1>
@@ -52,7 +66,15 @@ export const Login = () => {
         <label>
           <span>Email</span>
           {/* Estamos pegando o valor do "input" e atribuindo ao "state". */}
-          <input value={email} onChange={(e) => setEmail(e.target.value)} />
+
+          {/* Se a tecla pressionada for o "Enter", mudaremos o foco para a input de senha. */}
+          <input
+            onKeyDown={(e) =>
+              e.key === "Enter" ? inputPasswordRef.current?.focus : undefined
+            }
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
         </label>
 
         <label>
@@ -61,6 +83,7 @@ export const Login = () => {
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
+            ref={inputPasswordRef}
           />
         </label>
 

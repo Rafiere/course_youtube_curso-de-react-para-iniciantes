@@ -62,7 +62,7 @@ useMemo é uma hook do React que permite memorizar o resultado de uma função, 
 
 Em resumo, o useMemo é uma ferramenta para otimizar o desempenho do seu componente, evitando cálculos desnecessários e mantendo a performance do componente.
 
-# AULA 09 - Usando o USECALLBACK
+# AULA 09 - USANDO O USECALLBACK
 
 O "useCallback()" é um hook usado, principalmente, para melhorarmos a performance da aplicação.
 
@@ -71,3 +71,9 @@ O "useCallback()" é feito para, principalmente, memorizarmos funções.
 Todas as vezes que um state é alterado, o componente inteiro é reconstruído. Esse é o funcionamento normal do React, porém, uma constante que recebe uma variável será atribuída cada vez que o componente for renderizado.
 
 O "useCallback()" fará com que uma função NÃO SEJA RECONSTRUÍDA TODAS AS VEZES QUE UM STATE FOR ALTERADO.
+
+# AULA 10 - USANDO O USEREF COM ELEMENTOS HTML
+
+O "useRef()" permite que armazenemos valor dentro de uma variável, e esses valores não serão alterados conforme o componente é renderizado.
+
+# AULA 11 - USANDO O USEREF COM OBJETOS SIMPLES
