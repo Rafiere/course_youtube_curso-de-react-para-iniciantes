@@ -19,3 +19,9 @@ O `React DOM` vai renderizar a aplicação inteira dentro de uma `div` com o ID 
 Quando utilizamos, dentro de um arquivo `.tsx`, a notação `import ./nome-do-arquivo.css`, o React entende que estamos aplicando esse CSS ao arquivo atual.
 
 # AULA 02 - REMOVENDO ARQUIVOS DESNECESSÁRIOS
+
+Nessa aula, foram removidos apenas alguns arquivos desnecessários.
+
+# AULA 03 - ESTRUTURA DE PASTAS
+
+Uma aplicação `SPA` é uma aplicação em que todas as páginas dessa aplicação serão carregadas dentro do arquivo `index.html` através do JavaScript.
