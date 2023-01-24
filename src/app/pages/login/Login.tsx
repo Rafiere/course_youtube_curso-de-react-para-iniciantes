@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 export const Login = () => {
@@ -13,8 +13,6 @@ export const Login = () => {
   const handleClick = () => {
     navigate("/dashboard");
   };
-
-  const handleLogin = () => {};
 
   /* Esse bloco de código será executado apenas quando o componente "Login", ou seja, a página "Login" for carregada. */
   useEffect(() => {
@@ -32,11 +30,16 @@ export const Login = () => {
 
   /* Se o array de dependências estiver vazio, o "useMemo" será executado a cada renderização do componente. */
 
-  /* Basicamente, o "useMemo" deve ser utilizado quando fazemos cálculos que NÃO ESTÃO, NECESSARIAMENTE, NO ESTADO DO COMPONENTE, COMO VALIDAÇÕES OU MÉTODOS QUE USAM O VALOR DE UM ESTADO E RETORNAM UM OUTRO DETERMINADO VALOR, como o exemplo abaixo, que calcula a quantidade de caracteres do email e multiplica por
-  1000, esse valor não deve ter um estado só para ele, dessa forma, estamos usando o useMemo. O "useMemo" é executado DURANTE a renderização do componente, enquanto que o "useEffect()" torna o novo valor disponível APÓS a renderização. */
+  /* O "useMemo" serve para evitarmos cálculos desnecessários a cada renderização do componente. O "useMemo" é executado durante a atualização do componente, enquanto que o "useEffect" é executado após a renderização do componente, ou seja, com o objetivo de atualizar o estado do componente ou efeitos colaterais. */
   const emailLength = useMemo(() => {
     return email.length * 1000;
   }, [email.length]);
+
+  /* O "useCallback" será executado quando o componente é renderizado pela primeira vez. Ele guardará essa função em memória. Se alterarmos algum "state" e esse "state" não estiver no array de dependências, essa função NÃO SERÁ RECONSTRUÍDA, deixando a aplicação mais performática.*/
+  const handleLogin = useCallback(() => {
+    console.log(email);
+    console.log(password);
+  }, [email, password]);
 
   return (
     <div>

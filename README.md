@@ -53,3 +53,21 @@ Ele impede que todas as vezes que alteremos um estado, um bloco de código seja 
 Se o array de dependências estiver vazio, o código será executado apenas quando executarmos o componente.
 
 # AULA 08 - USANDO O USEMEMO
+
+useMemo é uma hook do React que permite memorizar o resultado de uma função, evitando a execução desnecessária da mesma quando nenhuma das dependências foram alteradas. Ele é útil quando você tem cálculos que não precisam ser armazenados como estado, mas precisam ser executados apenas quando as dependências mudarem. Alguns casos comuns de uso incluem:
+
+- Quando você tem um cálculo que é caro em termos de desempenho e não precisa ser executado a cada renderização.
+- Quando você precisa calcular um valor baseado em algum estado ou props do componente, mas esse valor não precisa ser armazenado como estado.
+- Quando você precisa retornar algo diferente de um componente ou função, como um objeto ou array.
+
+Em resumo, o useMemo é uma ferramenta para otimizar o desempenho do seu componente, evitando cálculos desnecessários e mantendo a performance do componente.
+
+# AULA 09 - Usando o USECALLBACK
+
+O "useCallback()" é um hook usado, principalmente, para melhorarmos a performance da aplicação.
+
+O "useCallback()" é feito para, principalmente, memorizarmos funções.
+
+Todas as vezes que um state é alterado, o componente inteiro é reconstruído. Esse é o funcionamento normal do React, porém, uma constante que recebe uma variável será atribuída cada vez que o componente for renderizado.
+
+O "useCallback()" fará com que uma função NÃO SEJA RECONSTRUÍDA TODAS AS VEZES QUE UM STATE FOR ALTERADO.
