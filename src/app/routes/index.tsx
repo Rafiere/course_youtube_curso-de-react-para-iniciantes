@@ -2,12 +2,13 @@
 
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { Dashboard } from "../pages";
+import { Dashboard, Login } from "../pages";
 
 const AppRoutes = () => {
   return (
     <BrowserRouter>
       <Routes>
+        <Route path="/login" element={<Login />}></Route>
         <Route path="/dashboard" element={<Dashboard />}></Route>
         <Route path="*" element={<h1>Página não encontrada!</h1>}></Route>
       </Routes>
