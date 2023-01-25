@@ -29,7 +29,7 @@ export const LoginComponentizado = () => {
           value={password}
           onChange={(novoValor) => setPassword(novoValor)}
         />
-        <button></button>
+        <button type="button">Enviar</button>
       </form>
     </div>
   );
