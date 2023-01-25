@@ -76,4 +76,14 @@ O "useCallback()" fará com que uma função NÃO SEJA RECONSTRUÍDA TODAS AS VE
 
 O "useRef()" permite que armazenemos valor dentro de uma variável, e esses valores não serão alterados conforme o componente é renderizado.
 
-# AULA 11 - USANDO O USEREF COM OBJETOS SIMPLES
+# AULA 13 - USANDO FORWARDREF
+
+`forwardRef` é uma função fornecida pelo React que permite passar uma referência de um componente para outro componente. Isso é útil quando você precisa garantir que um componente filho tenha acesso ao estado ou aos métodos de um componente pai.
+
+Ao passar uma referência para um componente, você pode chamar métodos ou acessar estados desse componente a partir do componente filho. Isso pode ser útil em situações em que você precisa garantir que o componente filho tenha acesso ao estado ou aos métodos do componente pai. Ele é usado como uma forma de acessar dados de componentes de nível superior sem passar esses dados como props toda vez.
+
+Para utilizar o `forwardRef` é preciso criar uma referencia com o `useRef` no componente pai e passa-la como props para o componente filho, que por sua vez usa essa referencia para acessar o estado ou métodos do componente pai.
+
+Em resumo, o forwardRef é uma técnica para passar uma referência de um componente para outro, garantindo que o componente filho tenha acesso ao estado ou aos métodos do componente pai, sem precisar passar esses dados como props toda vez.
+
+# AULA 14 - PASSANDO FILHOS PARA COMPONENTES
