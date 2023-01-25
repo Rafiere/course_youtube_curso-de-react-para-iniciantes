@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import ButtonLogin from "../login-componentizado/components/ButtonLogin";
 
 export const Login = () => {
   /* É recomendado utilizarmos o "useNavigate" para navegarmos de página usando o RRD6, que é a forma correta ao utilizarmos o React, ou seja, sem recarregarmos a página. */
@@ -55,6 +56,10 @@ export const Login = () => {
     }
   }, [email, password]);
 
+  const handleSignUp = useCallback(() => {
+    console.log("Realizando o cadastro...");
+  }, []);
+
   return (
     <div>
       <h1>Página de Login</h1>
@@ -88,9 +93,13 @@ export const Login = () => {
         </label>
 
         {/* Se deixássemos o tipo do botão como "submit", o "reload" seria feito na página. */}
-        <button type="button" onClick={handleLogin}>
-          Entrar
-        </button>
+        <ButtonLogin type="button" onClick={handleLogin}>
+          Sign In
+        </ButtonLogin>
+
+        <ButtonLogin type="button" onClick={handleSignUp}>
+          Sign Up
+        </ButtonLogin>
       </form>
     </div>
   );
