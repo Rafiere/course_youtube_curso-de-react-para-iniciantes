@@ -1,6 +1,5 @@
-import React, { useContext, useRef } from "react";
+import React, { useRef } from "react";
 import { Link } from "react-router-dom";
-import { UsuarioLogadoContext } from "../../shared/contexts";
 import { useUsuarioLogado } from "../../shared/hooks";
 
 /* Esse será o componente que representará uma página. */
@@ -27,6 +26,7 @@ export const Dashboard = () => {
 
       <p>Contador: {counterRef.current.counter}</p>
       <button onClick={() => counterRef.current.counter++}>Somar</button>
+      <button onClick={() => usuarioLogadoContext.logout()}>Logout</button>
     </div>
   );
 };
