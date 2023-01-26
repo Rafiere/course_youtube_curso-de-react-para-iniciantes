@@ -91,3 +91,7 @@ Em resumo, o forwardRef é uma técnica para passar uma referência de um compon
 No React, o contexto é utilizado para **compartilhar informações entre diversos componentes ou diversas páginas**.
 
 Podemos, por exemplo, criar algo em volta das páginas, para que a informação seja compartilhada em vários lugares.
+
+# AULA 17 - CRIANDO UM REACT HOOK CUSTOMIZADO
+
+Um React Hook é **uma função que possui um hook do React dentro dela**.
