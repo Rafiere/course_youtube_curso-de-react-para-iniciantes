@@ -86,4 +86,8 @@ Para utilizar o `forwardRef` é preciso criar uma referencia com o `useRef` no c
 
 Em resumo, o forwardRef é uma técnica para passar uma referência de um componente para outro, garantindo que o componente filho tenha acesso ao estado ou aos métodos do componente pai, sem precisar passar esses dados como props toda vez.
 
-# AULA 14 - PASSANDO FILHOS PARA COMPONENTES
+# AULA 15 - USANDO A API DE CONTEXT
+
+No React, o contexto é utilizado para **compartilhar informações entre diversos componentes ou diversas páginas**.
+
+Podemos, por exemplo, criar algo em volta das páginas, para que a informação seja compartilhada em vários lugares.
