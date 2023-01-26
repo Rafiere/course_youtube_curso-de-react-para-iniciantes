@@ -8,6 +8,7 @@ import {
 } from "react";
 import { useNavigate } from "react-router-dom";
 import { UsuarioLogadoContext } from "../../shared/contexts";
+import { useUsuarioLogado } from "../../shared/hooks";
 import ButtonLogin from "../login-componentizado/components/ButtonLogin";
 
 export const Login = () => {
@@ -69,7 +70,9 @@ export const Login = () => {
   }, []);
 
   /* Estamos obtendo os dados do contexto do usuário logado. */
-  const usuarioLogadoContext = useContext(UsuarioLogadoContext);
+  // const usuarioLogadoContext = useContext(UsuarioLogadoContext);
+
+  const usuarioLogadoContext = useUsuarioLogado();
 
   return (
     <div>

@@ -1,6 +1,7 @@
 import React, { useContext, useRef } from "react";
 import { Link } from "react-router-dom";
 import { UsuarioLogadoContext } from "../../shared/contexts";
+import { useUsuarioLogado } from "../../shared/hooks";
 
 /* Esse será o componente que representará uma página. */
 
@@ -11,7 +12,10 @@ export const Dashboard = () => {
   const counterRef = useRef({ counter: 0 });
 
   /* Estamos obtendo os dados do contexto do usuário logado. */
-  const usuarioLogadoContext = useContext(UsuarioLogadoContext);
+  // const usuarioLogadoContext = useContext(UsuarioLogadoContext);
+
+  /* Estamos usando um hook customizado para obtermos o contexto do usuário logado. */
+  const usuarioLogadoContext = useUsuarioLogado();
 
   return (
     <div>
