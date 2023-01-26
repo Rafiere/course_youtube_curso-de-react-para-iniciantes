@@ -1,6 +1,6 @@
 /* Cada arquivo na pasta "contexts" representará um único contexto. Podemos ter vários contextos dentro de uma aplicação React. */
 
-import React, { createContext, useCallback } from "react";
+import React, { createContext, useCallback, useEffect, useState } from "react";
 
 /* Essa é a interface que REPRESENTA OS DADOS COMPARTILHADOS DO CONTEXTO. */
 interface UsuarioLogadoContextData {
@@ -27,15 +27,24 @@ export const UsuarioLogadoContext = createContext(
 export const UsuarioLogadoProvider = ({
   children,
 }: UsuarioLogadoContextProps) => {
+  const [nome, setNome] = useState("");
+
   /* Essa função está simulando o logout na página e está sendo disponibilizada através do contexto. */
   const handleLogout = useCallback(() => {
     console.log("Logout...");
   }, []);
 
+  useEffect(() => {
+    /* Após 1 segundo que o componente foi alterado, o valor do estado será alterado, também. Isso pode simular uma chamada de API. */
+    setTimeout(() => {
+      setNome("Lucas");
+    }, 1000);
+  });
+
   return (
     <UsuarioLogadoContext.Provider
       value={{
-        nomeDoUsuario: "Lucas",
+        nomeDoUsuario: nome,
         logout: handleLogout,
       }}
     >
