@@ -15,17 +15,19 @@ interface UsuarioLogadoContextProps {
 /* Abaixo, vamos criar um contexto. Os dados abaixo poderão ser compartilhados entre diversas páginas. */
 
 /* O "as" representa que esse objeto vazio será do tipo da interface. */
-const UsuarioLogadoContext = createContext({} as UsuarioLogadoContextData);
+export const UsuarioLogadoContext = createContext(
+  {} as UsuarioLogadoContextData
+);
 
 /* O componente abaixo será o PROVEDOR de um contexto. */
 
 /* Esse contexto compartilhará as informações que ele armazena com todo mundo que ele tiver como filhos. */
-const UsuarioLogadoProvider = ({ children }: UsuarioLogadoContextProps) => {
+export const UsuarioLogadoProvider = ({
+  children,
+}: UsuarioLogadoContextProps) => {
   return (
     <UsuarioLogadoContext.Provider value={{ nomeDoUsuario: "Lucas" }}>
       {children}
     </UsuarioLogadoContext.Provider>
   );
 };
-
-export default UsuarioLogadoProvider;

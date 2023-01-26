@@ -1,5 +1,13 @@
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import {
+  useCallback,
+  useContext,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from "react";
 import { useNavigate } from "react-router-dom";
+import { UsuarioLogadoContext } from "../../shared/contexts";
 import ButtonLogin from "../login-componentizado/components/ButtonLogin";
 
 export const Login = () => {
@@ -60,12 +68,18 @@ export const Login = () => {
     console.log("Realizando o cadastro...");
   }, []);
 
+  /* Estamos obtendo os dados do contexto do usuário logado. */
+  const usuarioLogadoContext = useContext(UsuarioLogadoContext);
+
   return (
     <div>
       <h1>Página de Login</h1>
       <button onClick={handleClick}>Ir para Dashboard</button>
 
       <p>Quantidade de caracteres no email: {email.length}</p>
+
+      {/* Estamos obtendo o valor do contexto "nomeDoUsuario". */}
+      <p>Usuário Logado: {usuarioLogadoContext.nomeDoUsuario}</p>
 
       <form>
         <label>

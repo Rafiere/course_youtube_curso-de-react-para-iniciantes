@@ -1,6 +1,6 @@
 import React from "react";
 import AppRoutes from "./routes";
-import UsuarioLogadoProvider from "./shared/contexts/UsuarioLogado";
+import { UsuarioLogadoProvider } from "./shared/contexts";
 
 const App = () => {
   return (
