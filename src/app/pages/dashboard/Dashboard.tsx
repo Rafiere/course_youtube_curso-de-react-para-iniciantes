@@ -2,6 +2,11 @@ import React, { useCallback, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { useUsuarioLogado } from "../../shared/hooks";
 
+interface ListItemProps {
+  title: string;
+  isSelected: boolean;
+}
+
 /* Esse será o componente que representará uma página. */
 
 export const Dashboard = () => {
@@ -17,6 +22,7 @@ export const Dashboard = () => {
   const usuarioLogadoContext = useUsuarioLogado();
 
   const [lista, setLista] = useState<string[]>([]);
+  const [listaObjetos, setListaObjetos] = useState<ListItemProps[]>([]);
 
   /* O "callback" do "handleEnter" receberá um objeto que é um evento de teclado, assim, estamos tipando esse objeto corretamente. */
   const handleEnter: React.KeyboardEventHandler<HTMLInputElement> = useCallback(
@@ -30,8 +36,8 @@ export const Dashboard = () => {
 
         const valorNovo = e.currentTarget.value;
 
-        /* Estamos limpando o valor da input. Poderíamos utilizar um estado, se necessário. */
-        e.currentTarget.value = "";
+        // /* Estamos limpando o valor da input. Poderíamos utilizar um estado, se necessário. */
+        // e.currentTarget.value = "";
 
         setLista((listaAntiga) => {
           return [...listaAntiga, valorNovo];
@@ -40,6 +46,32 @@ export const Dashboard = () => {
     },
     []
   );
+
+  const handleEnter2: React.KeyboardEventHandler<HTMLInputElement> =
+    useCallback((e) => {
+      if (e.key === "Enter") {
+        if (e.currentTarget.value.trim().length === 0) {
+          return;
+        }
+
+        const valorNovo = e.currentTarget.value;
+
+        e.currentTarget.value = "";
+
+        setListaObjetos((listaAntiga) => {
+          if (listaAntiga.some((listItem) => listItem.title === valorNovo)) {
+            return listaAntiga;
+          }
+          return [
+            ...listaAntiga,
+            {
+              title: valorNovo,
+              isSelected: false,
+            },
+          ];
+        });
+      }
+    }, []);
 
   return (
     <div>
@@ -50,7 +82,12 @@ export const Dashboard = () => {
       <p>Usuário Logado: {usuarioLogadoContext.nomeDoUsuario}</p>
 
       <div>
-        <input onKeyDown={handleEnter} />
+        <input
+          onKeyDown={(e) => {
+            handleEnter(e);
+            handleEnter2(e);
+          }}
+        />
 
         <p>Lista</p>
         <ul>
@@ -59,6 +96,34 @@ export const Dashboard = () => {
               <li>
                 {index}
                 {" - " + item}
+              </li>
+            );
+          })}
+        </ul>
+
+        <p>Lista de Objetos:</p>
+        <ul>
+          {listaObjetos.map((elementoLista) => {
+            return (
+              <li>
+                <p>{elementoLista.title}</p>
+                <input
+                  type="checkbox"
+                  onChange={() => {
+                    setListaObjetos((listaAntiga) => {
+                      return listaAntiga.map((itemLista) => {
+                        const newIsSelected =
+                          itemLista.title === elementoLista.title
+                            ? !itemLista.isSelected
+                            : itemLista.isSelected;
+                        return {
+                          ...itemLista,
+                          isSelected: newIsSelected,
+                        };
+                      });
+                    });
+                  }}
+                />
               </li>
             );
           })}
