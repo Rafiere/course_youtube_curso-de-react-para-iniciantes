@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useUsuarioLogado } from "../../shared/hooks";
 
 interface ListItemProps {
+  id: number;
   title: string;
   isSelected: boolean;
 }
@@ -65,6 +66,7 @@ export const Dashboard = () => {
           return [
             ...listaAntiga,
             {
+              id: listaAntiga.length,
               title: valorNovo,
               isSelected: false,
             },
